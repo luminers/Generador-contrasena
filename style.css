@@ -1,0 +1,72 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    background-color: #222831;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    color: #EEEEEE;
+}
+
+.app-container{
+    background-color: #393E46 ;
+    border-radius: 5px;
+  
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.app-body{
+    width: 100%;
+}
+
+.app-opciones label{
+    font-size: 20px;
+}
+
+#button-generar{
+    width: 100%;
+    border: none;
+    height: 30px;
+    margin-top: 10px;
+    align-self: center;
+    background: none;
+    background-color: #00ADB5;
+    border-radius: 5px;
+}
+
+#button-copiar{
+    width: 35%;
+    height: 30px;
+    background: none;
+    border-radius: 5px;
+    border: none;
+    background-color: #00ADB5;
+    font-size: 20px;
+}
+
+#button-generar:hover, #button-copiar:hover{
+   border-radius: 20px;
+   background-color: #E3BEC6;
+}
+
+#contrasena{
+    border: none;
+    height: 30px;
+    width: 60%;
+    padding: 0;
+    border-radius: 5px;
+    background: none;
+    background-color: #EEEEEE ;
+    font-size: 20px;
+}
