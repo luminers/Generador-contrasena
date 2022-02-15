@@ -2,11 +2,12 @@
 
 
 let generar = document.getElementById("button-generar");
-let simbolos = document.getElementById("simbolos");
-let largo = document.getElementById("largo");
-let numeros = document.getElementById("numeros");
-let mayusculas = document.getElementById("mayusculas");
-let contrasena=document.getElementById("contrasena");
+let simbolosEl = document.getElementById("simbolos");
+let largoEl = document.getElementById("largo");
+let numerosEl = document.getElementById("numeros");
+let minusculasEl= document.getElementById("minusculas");
+let mayusculasEl = document.getElementById("mayusculas");
+let contrasenaEl=document.getElementById("contrasena");
 
 
 
@@ -15,19 +16,65 @@ const symbols="!@#$%^&*()_-+=";
 const lowerLetters="qwertyuiopasdfghjklzxcvbnm";
 const upperLetters="QWERTYUIOPASDFGHJKLZXCVBNM";
 
-let min=10;
-let max=11;
 
-function generarNumbers(min,max){
-    contrasena.value= numbers[Math.random() * (max - min) ]
-    console.log(contrasena.value);
+
+function GenerarNumeros() {
+    return numbers[Math.floor(Math.random()
+        *numbers.length)]    
+}
+function GenerarSimbolos() {
+    return symbols[Math.floor(Math.random()
+        *symbols.length)]    
+}
+function GenerarMayusculas() {
+    return upperLetters[Math.floor(Math.random()
+        *upperLetters.length)]    
+}
+function GenerarMinusculas() {
+    return lowerLetters[Math.floor(Math.random()
+        *lowerLetters.length)]    
 }
 
-function addSimbolos(){
-    contrasena.value=symbols[Math.random()]
+function GenerarContrasena(){
+   let largo=largoEl.value;
+   let contrasena="";
+
+   for (let i = 0; i < largo; i++) {
+       contrasena+=GenerarX();
+       
+   }
+
+   contrasenaEl.value=contrasena;
+    
+
 }
 
+function GenerarX(){
+    let xs=[]
+
+    if(numerosEl.checked){
+        xs.push(GenerarNumeros());
+    
+    }
+
+    if(simbolosEl.checked){
+        xs.push(GenerarSimbolos());
+    }
+
+    if(minusculasEl.checked){
+        xs.push(GenerarMinusculas());
+    }
+
+    if(mayusculasEl.checked){
+        xs.push(GenerarMayusculas());
+    }
 
 
+    if (xs.length==0){
+        return " "
+    }else{
+        return xs[Math.floor(Math.random() * xs.length)];
+    }
+}
 
-generar.addEventListener("click", generarNumbers);
+generar.addEventListener("click", GenerarContrasena)
